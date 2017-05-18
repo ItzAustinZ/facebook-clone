@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Facebook Clone</title>
+</head>
+<body>
+<form action="/statusupdate" method="POST">
+	<p><textarea name="text"></textarea></p>
+	<p><button type="submit">Post</button>
+</form>
+<div>
+	{% for post in posts %}
+		<div class="post">{{ post.decode('utf-8') }}</div>
+	{% endfor %}
+</div>
+</body>
+</html>

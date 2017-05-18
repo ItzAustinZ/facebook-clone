@@ -10,5 +10,6 @@ ENV FLASK_APP /root/main.py
 
 # copy sources
 COPY main.py /root/main.py
+COPY index.html /root/templates/index.html
 
 CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
