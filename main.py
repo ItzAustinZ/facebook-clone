@@ -14,5 +14,14 @@ def status_update():
 	redis.lpush('posts', status_update_text.encode('utf-8'))
 	return redirect(url_for('home'))
 
+@app.route("/adduser",methods=['POST'])
+def adduser():
+	username = request.form['username']	
+	password = request.form['password']
+	firstname = request.form['firstname']
+	lastname = request.form['lastname']
+	redis.hmset("user:{}".format(username), {'password':password, 'firstname':firstname, 'lastname':lastname})
+	return ""
+
 if __name__ == "__main__":
 	app.run()
